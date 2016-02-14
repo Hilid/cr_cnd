@@ -103,8 +103,8 @@
 %----------------------------------------------------------------------------------------
 
 \begin{abstract}
-
-\noindent 
+\noindent L'imagerie multi-éléments repose sur le même principe que les antennes à commande de phase : le transducteur utilisé est constitué de plusieurs éléments piézoélectriques pouvant émettre et recevoir des signaux haute fréquence.
+ Afin de comprendre son utilisation en contrôle de pièces industrielles, trois défauts de soudure sont imagés à l'aide d'un boîtier Sofranel. La qualité de leur représentation dépend surtout de la précision sur la position des capteurs lors de la mesure et des nombreux réglages effectués en amont. 
 
 \end{abstract}
 
@@ -134,7 +134,7 @@ Ce même transducteur est utilisé pour la réception du signal réfléchi.
 
 Cette méthode présente donc l'intérêt de pouvoir effectuer des balayages rapides, fournissant une image 2D sans déplacement du transducteur. Elle est donc adaptée à un usage industriel, pour des pièces de géométrie complexe ou partiellement accessibles. De plus, la focalisation dans la matière permet d'obtenir un bon rapport signal sur bruit.
 
-Ses inconvénients sont le prix du matériel, de part la complexité de sa fabrication, et niveau technique que requiert son utilisation. 
+Ses inconvénients sont le prix du matériel, de part la complexité de sa fabrication, et le niveau technique que requiert son utilisation. 
 
 %------------------------------------------------
 
@@ -196,10 +196,17 @@ Les S-scans réalisés au niveau des défauts sont présentés en figure~\ref{re
 	\caption{\label{resultat} Résultat des mesures au niveau des défauts \textcircled{\footnotesize 1}, \textcircled{\footnotesize 2} et \textcircled{\footnotesize 3} (de haut en bas).}
 \end{figure}
 
-Les deux premiers scan donne une position erronée du défaut. Le premier défaut devrait être situé à la racine de la soudure et le second au centre. Ce décalage provient d'une imprécision sur la position du transducteur sur la plaque. Manipulé à la main, il a pu ne pas rester tout à fait d'équerre et sa distance à la soudure a pu changer également légèrement. Il apparaît donc que l'image est très sensible à la position du transducteur et qu'un guide précis aurait du être utilisé pour réaliser les scans.
+Les deux premiers scans donne une position erronée du défaut. Le premier défaut devrait être situé à la racine de la soudure et le second au centre. Ce décalage provient d'une imprécision sur la position du transducteur sur la plaque. Manipulé à la main, il a pu ne pas rester tout à fait d'équerre et sa distance à la soudure a pu changer également légèrement. Il apparaît donc que l'image est très sensible à la position du transducteur et qu'un guide précis aurait du être utilisé pour réaliser les scans.\\
+
+Il est difficile d'évaluer sans expérience le type de défaut par simple observation des images. La porosité apparaît d'amplitude plus faible et sous forme de réflexions multiples, mais les deux autres défauts se ressemblent beaucoup.\\
+
+Enfin, il est à noter que ces images sont le résultats d'un paramétrage optimisé de la focalisation pour observer au mieux les défauts, dont la position étaient connues. Il s'avère qu'un mauvais choix de focalisation peut compromettre la qualité d'un contrôle, car c'est un paramètre sensible qui peut rendre un défaut invisible.
 %------------------------------------------------
 
+\section{Conclusion}
 
+Ces trois exemples de défauts couramment rencontrés en contrôle de soudures montrent que l'imagerie multi-éléments peut donner des représentations précises d'inhomogénéités dans un matériau isotrope. \\
+Les boîtiers commercialisés à cet effet ne nécessitent pas de connaissance en traitement du signal, mais exige de l'attention lors des réglage et de la précision lors de la mesure.
 
 
 %----------------------------------------------------------------------------------------
