@@ -59,4 +59,4 @@ datay3 = [40/326 40/116 40/50];
 plot(datax3*h, datay3,'linewidth',5,'r+');
 hold on
 
-%print('-dpng', ['dispercurves_aluminium.png'])
+print('-dsvg', ['dispercurves_aluminium.svg'])
