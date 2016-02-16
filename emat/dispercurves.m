@@ -66,13 +66,14 @@ function figh=dispercurves(h, vL, vT, f_v)
 	figh = figure;
 
 	vphi = w./kx;
+%	vg = -gradient(vphi);
 	contour(f*h, vphi, sym, isoline, 'b', 'LineWidth', 2);
 	hold on;
 	contour(f*h, vphi, antisym, isoline, 'r', 'LineWidth', 2);
 
-	% legend('Sym', 'AntiSym', 'location', 'southeast')
+	 legend('Sym', 'AntiSym', 'location', 'southeast')
 
-	xlabel('f.h');
+	xlabel('f.h en MHz.mm');
 	ylabel('v_\Phi (mm/µs)');
 
 	% % tracé des VL et VT
