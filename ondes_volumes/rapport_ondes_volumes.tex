@@ -71,6 +71,8 @@
 
 %pour les figures
 \usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
 
 \renewcommand{\degre}{$^{\circ}$}
 
@@ -78,7 +80,7 @@
 %	TITLE SECTION
 %----------------------------------------------------------------------------------------
 
-\title{\vspace{-15mm}\fontsize{24pt}{10pt}\selectfont\textbf{Article Title}} % Article title
+\title{\vspace{-15mm}\fontsize{24pt}{10pt}\selectfont\textbf{Étude de la propagation des ondes de volume et de surface dans une plaque}} % Article title
 
 \author{
 \large
@@ -103,7 +105,7 @@
 
 \begin{abstract}
 
-\noindent 
+\noindent Ce rapport revient sur trois types d'ondes se propageant dans les solides : transversale, longitudinale et de Rayleigh. La vitesse de ces ondes est mesurée dans une plaque d'alliage d'aluminium, à l'aide de transducteurs mono-éléments piézoélectriques. Les ondes de Rayleigh et longitudinales (L) sont aussi caractérisées par leur atténuation. Il apparaît que les ondes de Rayleigh sont plus atténuées que les ondes L.
 
 \end{abstract}
 
@@ -114,14 +116,15 @@
 \begin{multicols}{2} % Two-column layout throughout the main article text
 
 \section{Introduction}
-La caractérisation de matériaux par l'utilisation de transducteurs mono-éléments peut s'effectuer de différentes manières : différentes configuration sont possibles et différentes ondes peuvent être générées.\\
+La caractérisation de matériaux par l'utilisation de transducteurs mono-éléments peut être effectuées par génération de différents types d'onde : des ondes de volumes sont mesurées en "through mode", transmission latérale ou "echo mode" et une onde de surface, l'onde de Rayleigh, est observée en transmission latérale.\\
 
-Ce rapport donne un bref aperçu===========
-Deux paires de transducteurs piézoélectriques mono-éléments sont à disposition, de fréquence centrale 2.5 et 5 MHz...
-DIRE QUE CE SONT LES DONNEES DE MATHIEU ET FANON	
-Mesures à l'oscillo	
+ Les ondes de Rayleigh sont des ondes se propageant à l'interface entre un matériau semi-infini et le vide. Elles ont été mise en évidence par Lord Rayleigh en 1885 \cite{R} et résultent d'une recombinaison d'ondes longitudinales (L) et transversales (T). Ces ondes sont évanescentes dans le matériau mais permettent quand même le contrôle de défauts subsurfaciques. De plus, elles sont très utilisées en sismologie car elles peuvent être générées lors des tremblements de terres.\\
+
+Ce rapport donne un bref aperçu des caractéristiques de ces ondes, notamment leur vitesse et leur atténuation ainsi que des ondes de volume.
+
+
 %------------------------------------------------
-\subsection*{Notation}
+\subsection*{Notations}
 
 L'excitation normale du transducteur donne naissance à une onde longitudinale dans le sabot en Plexiglas se propageant à un angle $\theta^{i}$ de la normale à la plaque, à la vitesse $c_{plexi}$. Par conversion de mode, une onde longitudinale (L) et une onde transversale (T) sont générées dans la plaque. Ces ondes se propagent formant respectivement les angles $\theta_{plaque}^L$ et $\theta_{plaque}^T$ avec la normale à la plaque, aux vitesses $c_{plaque}^T$ et $c_{plaque}^L$.\\
 
@@ -143,13 +146,13 @@ L'ensemble de ces notation est résumé dans la figure~\ref{notations}.
 
 \section{Ondes de volume}
 
-On cherche a évaluer la vitesse des ondes T et L dans une plaque de d'épaisseur d=20,5 mm, a priori en aluminium. 
+On cherche a évaluer la vitesse des ondes T et L dans une plaque de d'épaisseur d=20,5 mm, a priori en aluminium. Les mesures sont effectuées à l'aide de  transducteurs piézoélectriques de fréquence centrale 2.5 MHz. Les temps de vols sont relevés directement sur l'oscilloscope. 
 
 \subsection{En incidence normale}
 
 En utilisant un seul transducteur en mode écho (sans sabot), une succession d'écho est observé. Le premier correspond à un temps d'arrivée de 6,6~$\mu$s, ce qui correspond à deux fois le temps de vol dans une épaisseur de la plaque. L'épaisseur de la plaque étant de 20,5 mm, on peut en déduire que la vitesse pour les ondes L dans ce matériau est de $20,5.10^{-3}/3,3.10^{-6}\approx6200$ m/s. Considérant que le coefficient de Poisson de l'aluminium est de 0,35 et que son module d'Young est de 70 GPa, la célérité des ondes L devrait être de 4730 m/s. La plaque semble donc être plutôt faite d'un alliage d'aluminium, beaucoup plus dense que l'aluminium.\\
 
-La même mesure est effectuée avec sabot, en incidence normale, pour évaluer l'épaisseur de ce sabot en Plexiglas utilisé par la suite. Le nouveau temps d'arrivée est 62.4 $\mu$s, ce qui correspond à deux fois le temps de vol dnas le sabot puis dans la plaque. On a donc $\Delta t_{sabot}m27,9 \mu$s. Connaissant la vitesse des ondes L dans le Plexiglas ($c_{plexi}=2730$ m/s), on peut en déduire que l'épaisseur d'un sabot est de 38 mm. Cette valeur est vérifiée par une mesure au pied à coulisse.
+La même mesure est effectuée avec sabot, en incidence normale, pour évaluer l'épaisseur de ce sabot en Plexiglas utilisé par la suite. Le nouveau temps d'arrivée est 62.4 $\mu$s, ce qui correspond à deux fois le temps de vol dans le sabot puis dans la plaque. On a donc $\Delta t_{sabot} =27,9 \mu$s. Connaissant la vitesse des ondes L dans le Plexiglas ($c_{plexi}=2730$ m/s), on peut en déduire que l'épaisseur d'un sabot est de 38 mm. Cette valeur est vérifiée par une mesure au pied à coulisse.
 
 \subsection{En incidence oblique}
 	\subsubsection{Vitesse des ondes T}
@@ -169,16 +172,15 @@ Cette valeur est légèrement sous-estimée puisque l'angle de transmission n'es
 \end{eqnarray}
 Ce qui donne un système de deux équations à deux inconnues ($c_{plaque}^T$ et $\theta_{plaque}$).\\
 
-La relation~\ref{geom} donne : $$\cos\theta^{T}_{plaque} = \frac{d}{c_{plaque}^T. \Delta t_{plaque}^T}.$$
-Et comme, d'après~\ref{SD}, $$c_{plaque}^T = \frac{sin\theta^{T}_{plaque}.c_{plexi}}{sin\theta^{i}},$$ on a donc 
+La relation~\ref{geom} donne : $$\cos\theta_{plaque} = \frac{d}{c_{plaque}. \Delta t_{plaque}}.$$
+Et comme, d'après~\ref{SD}, $$c_{plaque} = \frac{sin\theta_{plaque}.c_{plexi}}{sin\theta^{i}},$$ on a donc 
 \begin{eqnarray*}
-\cos\theta^{T}_{plaque}&=& \frac{d.\sin\theta^{i}}{\Delta t_{plaque}^T.sin\theta^{T}_{plaque}.c_{plexi}}\\
-	\Leftrightarrow  \frac{\sin2\theta^{T}_{plaque}}{2}& = &\frac{d.\sin\theta^{i}}{\Delta t_{plaque}^T.c_{plexi}}\\
-	\Leftrightarrow \theta^{T}_{plaque} &=& \frac{1}{2}\arcsin\left(\frac{2d.\sin\theta^{i}}{\Delta t_{plaque}^T.c_{plexi}}\right)
+\cos\theta^{T}_{plaque}&=& \frac{d.\sin\theta^{i}}{\Delta t_{plaque}.sin\theta_{plaque}.c_{plexi}}\\
+	\Leftrightarrow  \frac{\sin2\theta_{plaque}}{2}& = &\frac{d.\sin\theta^{i}}{\Delta t_{plaque}.c_{plexi}}\\
+	\Leftrightarrow \theta_{plaque} &=& \frac{1}{2}\arcsin\left(\frac{2d.\sin\theta^{i}}{\Delta t_{plaque}.c_{plexi}}\right)
 \end{eqnarray*}
 
-Ce calcul est cependant limité, puisque la dernière relation impose que $\theta^{T}_{plaque}\leq 45^{\circ}$, car $-1\leq\arcsin(x) \leq1$. Or on sait que l'angle de transmission des ondes T est susceptible de dépasser 45$^{\circ}$.
-=========> qu'en conclue-t-on ?\\
+Il semble qu'il ne soit pas possible de raisonner ainsi, puisque la dernière relation impose que $\theta^{T}_{plaque}\leq 45^{\circ}$, car $-1\leq\arcsin(x) \leq1$. Or on sait que l'angle de transmission des ondes T est susceptible de dépasser 45$^{\circ}$. \\ \quad
 
 Même sans réinjecter dans ces équations les retards mesurés, le tableau~\ref{tab} montre que le temps de parcours pour les deux types d'onde diminue tandis que leur trajet augmente. Il semblerait donc que la plaque soit anisotrope. Cependant, il y a une forte incertitude sur l'angle d'incidence due à l'imprécision du sabot, ce qui met en doute cette supposition.
 
@@ -188,18 +190,17 @@ Même sans réinjecter dans ces équations les retards mesurés, le tableau~\ref
 		$\Delta t_{plaque}^L$ ($\mu$s)& 3.8 & 2.7 & & &   \\ \hline
 		$\Delta t_{plaque}^T$ ($\mu$s) &7.5& 6.6 & 6 & 4 & 3.7\\ 
 	\end{tabular}
-	\label{tab}
+	\caption{Temps de parcours des ondes T et L pour différents angles d'incidence.\label{tab}}
 \end{table}
 
 Ce tableau montre aussi qu'il n'y a plus génération d'ondes L au delà de 30\degre et d'onde T au delà de 60\degre.
 
-\section{Atténuation}
 
 \section{Ondes de surface}
 
-Quand l'angle d'incidence dépasse ces deux angles critiques, il y a génération d'ondes de surface appelée ondes de Rayleigh.
+Quand l'angle d'incidence dépasse ces deux angles critiques, il y a génération d'une onde de surface appelée onde de Rayleigh.
 \subsection{Mesure de vitesse}
-À l'aide de deux transducteurs, l'onde de Rayleigh est observée en transmission latérale. En effectuant une mesure de retard $\Delta t_R$ pour trois distances inter-transducteurs $L$ on obtient les valeurs de célérité $c_R$ suivantes :
+À l'aide de deux transducteurs, l'onde de Rayleigh est observée en transmission latérale. En effectuant une mesure de retard $\Delta t_R$ pour trois distances inter-transducteurs $L$, on obtient les valeurs de célérité $c_R$ suivantes :
 
 \begin{tabular}{c|c| c | c}
 $\Delta t_R$ ($\mu$s) &4.8 & 6.05 & 10.9 \\ \hline
@@ -207,9 +208,66 @@ $L$ (mm) & 14.5 & 16.3 & 30.8 \\ \hline
 $c_R$ (m/s) &3208 & 2694 & 2826
 \end{tabular}
 
+La vitesse des ondes de Rayleigh dans la plaque semble donc légèrement inférieur à 3000 m/s.\\
+
+Une valeur approchée théorique de cette vitesse peut être calculée de cette façon : 
+$$c_R=c_{plaque}^T \frac{0.718 - \left(\frac{c_{plaque}^T}{c_{plaque}^L}\right)^2}{0.75 - \left(\frac{c_{plaque}^T}{c_{plaque}^L}\right)^2}=2900 \text{m/s},$$
+en prenant $c_{plaque}^T=3100$ m/s et  $c_{plaque}^L=6200$ m/s.
+Cette valeur est très proche de celle obtenue expérimentalement.
+
 \subsection{Onde de Rayleigh de fuite}
 
+L'onde de Rayleigh étant une onde de surface, elle peut rayonner dans le fluide en contact avec le son milieu de propagation. Ce rayonnement (appelé onde de Rayleigh de fuite) est plus ou moins important selon la densité et la viscosité du fluide. \\
 
+Par conséquent, si un fluide, du couplant par exemple, se trouve sur le chemin de l'onde mesurée, une forte atténuation peut compromettre son observation. En effet, une grande partie de l'énergie est rayonnée dans ce fluide.
+
+Pour observer le phénomène, il suffit de générer une onde de Rayleigh, puis de la mesurer avec un capteur se trouvant séparé du matériau par une fine couche d'eau. 
+
+
+\section{Atténuation}
+La décroissance des ondes se propageant suivant la direction $x$ est de la forme $e^{-\alpha x)}$. On souhaite déterminer $\alpha$, qui correspond au coefficient d'atténuation.
+
+\subsection{Expérimentalement}
+La figure~\ref{attenuation} représente des mesures de Mathieu et Fanon : ~\ref{attenuationL} est une mesure de la propagation des ondes L (excitation en incidence normale) et ~\ref{attenuationR} est une mesure des ondes de Rayleigh se propageant sur 11,4 cm. Ces mesures sont effectuées à 2.25 MHz, avec un transducteur dont la bande passante est centrée autour de cette fréquence.
+
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.5\textwidth}
+	    \centering
+        \includegraphics[scale=0.45]{figures/attenuationL.png}
+        \subcaption{ondes L en modes écho}
+        \label{attenuationL}
+    \end{subfigure}\\\vspace{0.5cm}
+	\begin{subfigure}[b]{0.5\textwidth}
+	    \centering
+        \includegraphics[scale=0.45]{figures/attenuationR.png}       
+        \subcaption{ondes de Rayleigh}
+        \label{attenuationR}
+    \end{subfigure}
+	\caption{\label{attenuation}Calcul de l'atténuation par régression, des ondes L (\ref{attenuationL}) et de Rayleigh (\ref{attenuationR}).}
+\end{figure}
+
+Après avoir passé les données en dB, une régression linéaire est effectuée. Les coefficients d'atténuation $\alpha_{/s}^{L}$ et $\alpha_{/s}^{R}$ ainsi obtenus représentent la décroissance des ondes L et de Rayleigh par seconde. \\
+En divisant ces coefficients par la vitesse des ondes, on obtient donc les atténuations par mètre : 
+$$\alpha_{/m}^{L}=\frac{\alpha_{/s}^L}{c_{plaque}^L}=7.8 ~NP/m$$ $$~~~~\text{et}~~~~\alpha_{/m}^{R}=\frac{\alpha_{/s}^R}{c_{R}}=11.3~NP/m.$$
+
+On mesure donc une atténuation plus importante pour les ondes de Rayleigh (10 dB/m) que pour les ondes L (3.4 dB/m).
+
+\section{Conclusion}
+
+Les expérimentations faites dans le cadre de cette étude illustrent les principes généraux liés à la propagation des ondes dans  les solides : 
+\begin{itemize}
+	\item les vitesses sont telles que : $c_{R}<c_{T}<c_{L}$,
+	\item les ondes sont atténuées des quelques dB/m dans les solides à 2.5 MHz, ce qui est faible et avantageux pour le CND,
+	\item l'état de surface du solide est un paramètre important en CND car il peut engendrer une forte atténuation des ondes de surface.	
+\end{itemize}
+
+\begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
+\bibitem[R]{R}
+Lord Rayleigh, 1885 \\
+\newblock \emph{ Wave propagated along the plane surface of an elastic solid}
+\end{thebibliography}
 
 \end{multicols}
 
