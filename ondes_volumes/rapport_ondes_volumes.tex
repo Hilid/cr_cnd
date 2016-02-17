@@ -69,6 +69,11 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 
+%pour les figures
+\usepackage{graphicx}
+
+\renewcommand{\degre}{$^{\circ}$}
+
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION
 %----------------------------------------------------------------------------------------
@@ -98,7 +103,7 @@
 
 \begin{abstract}
 
-\noindent \lipsum[1] % Dummy abstract text
+\noindent 
 
 \end{abstract}
 
@@ -109,81 +114,102 @@
 \begin{multicols}{2} % Two-column layout throughout the main article text
 
 \section{Introduction}
+La caractérisation de matériaux par l'utilisation de transducteurs mono-éléments peut s'effectuer de différentes manières : différentes configuration sont possibles et différentes ondes peuvent être générées.\\
 
-éàè 
-\lipsum[2-3] % Dummy text
-
+Ce rapport donne un bref aperçu===========
+Deux paires de transducteurs piézoélectriques mono-éléments sont à disposition, de fréquence centrale 2.5 et 5 MHz...
+DIRE QUE CE SONT LES DONNEES DE MATHIEU ET FANON	
+Mesures à l'oscillo	
 %------------------------------------------------
+\subsection*{Notation}
 
-\section{Methods}
+L'excitation normale du transducteur donne naissance à une onde longitudinale dans le sabot en Plexiglas se propageant à un angle $\theta^{i}$ de la normale à la plaque, à la vitesse $c_{plexi}$. Par conversion de mode, une onde longitudinale (L) et une onde transversale (T) sont générées dans la plaque. Ces ondes se propagent formant respectivement les angles $\theta_{plaque}^L$ et $\theta_{plaque}^T$ avec la normale à la plaque, aux vitesses $c_{plaque}^T$ et $c_{plaque}^L$.\\
 
-Maecenas sed ultricies felis. Sed imperdiet dictum arcu a egestas. 
-\begin{compactitem}
-\item Donec dolor arcu, rutrum id molestie in, viverra sed diam
-\item Curabitur feugiat
-\item turpis sed auctor facilisis
-\item arcu eros accumsan lorem, at posuere mi diam sit amet tortor
-\item Fusce fermentum, mi sit amet euismod rutrum
-\item sem lorem molestie diam, iaculis aliquet sapien tortor non nisi
-\item Pellentesque bibendum pretium aliquet
-\end{compactitem}
-\lipsum[4] % Dummy text
+Le temps de parcours de l'onde incidente dans le sabot est noté $\Delta t_{sabot}$, et celui des ondes L et T dans la plaque sont notés $\Delta t_{plaque}^L$ et $\Delta t_{plaque}^T$. Finalement, si d est l'épaisseur de la plaque, la distance parcourue par les ondes L dans le sabot, puis L et T dans la plaque sont : 
+\begin{itemize}
+	\item[$\bullet$] $c_{plexi} \times \Delta t_{sabot}$ , \\
+	\item[$\bullet$] $c_{plaque}^T \times \Delta t_{plaque}^L = d/\cos(\theta_{plaque}^L)$ , \\
+	\item[$\bullet$] $c_{plaque}^L \times \Delta t_{plaque}^T = d/\cos(\theta_{plaque}^T)$.
+\end{itemize}
 
-%------------------------------------------------
+L'ensemble de ces notation est résumé dans la figure~\ref{notations}.
 
-\section{Results}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.23]{notations/dessin.png}
+	\includegraphics[scale=0.23]{notations/dessin2.png}
+	\caption{\label{notations}Représentation des angles d'incidence et de transmission (à gauche) et des distances parcourues par les ondes (à droite).}
+\end{figure}
+
+\section{Ondes de volume}
+
+On cherche a évaluer la vitesse des ondes T et L dans une plaque de d'épaisseur d=20,5 mm, a priori en aluminium. 
+
+\subsection{En incidence normale}
+
+En utilisant un seul transducteur en mode écho (sans sabot), une succession d'écho est observé. Le premier correspond à un temps d'arrivée de 6,6~$\mu$s, ce qui correspond à deux fois le temps de vol dans une épaisseur de la plaque. L'épaisseur de la plaque étant de 20,5 mm, on peut en déduire que la vitesse pour les ondes L dans ce matériau est de $20,5.10^{-3}/3,3.10^{-6}\approx6200$ m/s. Considérant que le coefficient de Poisson de l'aluminium est de 0,35 et que son module d'Young est de 70 GPa, la célérité des ondes L devrait être de 4730 m/s. La plaque semble donc être plutôt faite d'un alliage d'aluminium, beaucoup plus dense que l'aluminium.\\
+
+La même mesure est effectuée avec sabot, en incidence normale, pour évaluer l'épaisseur de ce sabot en Plexiglas utilisé par la suite. Le nouveau temps d'arrivée est 62.4 $\mu$s, ce qui correspond à deux fois le temps de vol dnas le sabot puis dans la plaque. On a donc $\Delta t_{sabot}m27,9 \mu$s. Connaissant la vitesse des ondes L dans le Plexiglas ($c_{plexi}=2730$ m/s), on peut en déduire que l'épaisseur d'un sabot est de 38 mm. Cette valeur est vérifiée par une mesure au pied à coulisse.
+
+\subsection{En incidence oblique}
+	\subsubsection{Vitesse des ondes T}
+	On cherche ici à évaluer la vitesse des ondes T dans la plaque. Pour cela, les mesures sont effectuée en "through mode".
+	Le transducteur est incliné à l'aide du sabot de 10$^{\circ}$. Cet angle étant faible, le parcours de l'onde T dans la plaque est considéré égal à l'épaisseur de la plaque. Le temps de vol mesuré $2\times(\Delta t_{sabot}+\Delta t_{plaque}^T)$ du second paquet d'onde correspond au parcours d'une onde L dans les sabots et d'une onde T dans la plaque. La vitesse des ondes T est donc retrouvée grâce à la relation : 
+	$$c_{T}^{plaque}=\frac{d}{2(\Delta t_{sabot}+\Delta t_{plaque}^T)-2\Delta t_{sabot}}=2733~ \text{m/s.}$$
+	
+Cette valeur est légèrement sous-estimée puisque l'angle de transmission n'est en réalité pas nul. L'ordre de grandeur est cependant proche de la valeur théorique de $c_{T}$ qui est de 3100 m/s dans l'aluminium.
+	
+	\subsection{Évaluation de l'anisotropie}
+	On souhaite connaître l'évolution de la vitesse de phase des ondes T et L dans la plaque en fonction de l'angle d'incidence $\theta^{i}$, afin de déterminer l'anisotropie du matériau.\\
+	
+	Nous avons pour cela, accès aux temps de parcours des ondes dans la plaque $\Delta t_{plaque}$. Reste à connaître l'angle de réfraction $\theta_{plaque}$ dans la plaque, donné par les relations : 
+\begin{eqnarray}
+		\frac{sin\theta^{i}}{c_{plexi}} &=&\frac{sin\theta^{T}_{plaque}}{c_{plaque}^T} \label{SD}\\ \text{et}~~~~~
+		c_{plaque}^T&=&\frac{d}{cos\theta_{plaque}^T. ~\Delta t_{plaque}^T} \label{geom}.	
+\end{eqnarray}
+Ce qui donne un système de deux équations à deux inconnues ($c_{plaque}^T$ et $\theta_{plaque}$).\\
+
+La relation~\ref{geom} donne : $$\cos\theta^{T}_{plaque} = \frac{d}{c_{plaque}^T. \Delta t_{plaque}^T}.$$
+Et comme, d'après~\ref{SD}, $$c_{plaque}^T = \frac{sin\theta^{T}_{plaque}.c_{plexi}}{sin\theta^{i}},$$ on a donc 
+\begin{eqnarray*}
+\cos\theta^{T}_{plaque}&=& \frac{d.\sin\theta^{i}}{\Delta t_{plaque}^T.sin\theta^{T}_{plaque}.c_{plexi}}\\
+	\Leftrightarrow  \frac{\sin2\theta^{T}_{plaque}}{2}& = &\frac{d.\sin\theta^{i}}{\Delta t_{plaque}^T.c_{plexi}}\\
+	\Leftrightarrow \theta^{T}_{plaque} &=& \frac{1}{2}\arcsin\left(\frac{2d.\sin\theta^{i}}{\Delta t_{plaque}^T.c_{plexi}}\right)
+\end{eqnarray*}
+
+Ce calcul est cependant limité, puisque la dernière relation impose que $\theta^{T}_{plaque}\leq 45^{\circ}$, car $-1\leq\arcsin(x) \leq1$. Or on sait que l'angle de transmission des ondes T est susceptible de dépasser 45$^{\circ}$.
+=========> qu'en conclue-t-on ?\\
+
+Même sans réinjecter dans ces équations les retards mesurés, le tableau~\ref{tab} montre que le temps de parcours pour les deux types d'onde diminue tandis que leur trajet augmente. Il semblerait donc que la plaque soit anisotrope. Cependant, il y a une forte incertitude sur l'angle d'incidence due à l'imprécision du sabot, ce qui met en doute cette supposition.
 
 \begin{table}[H]
-\caption{Example table}
-\centering
-\begin{tabular}{llr}
-\toprule
-\multicolumn{2}{c}{Name} \\
-\cmidrule(r){1-2}
-First name & Last Name & Grade \\
-\midrule
-John & Doe & $7.5$ \\
-Richard & Miles & $2$ \\
-\bottomrule
-\end{tabular}
+	\begin{tabular}{c|c|c|c|c|c}
+		$\theta^{i}$ ($^{\circ}$)  & 10 & 30 & 40 & 50 & 60\\ \hline
+		$\Delta t_{plaque}^L$ ($\mu$s)& 3.8 & 2.7 & & &   \\ \hline
+		$\Delta t_{plaque}^T$ ($\mu$s) &7.5& 6.6 & 6 & 4 & 3.7\\ 
+	\end{tabular}
+	\label{tab}
 \end{table}
 
-\lipsum[5] % Dummy text
+Ce tableau montre aussi qu'il n'y a plus génération d'ondes L au delà de 30\degre et d'onde T au delà de 60\degre.
 
-\begin{equation}
-\label{eq:emc}
-e = mc^2
-\end{equation}
+\section{Atténuation}
 
-\lipsum[6] % Dummy text
+\section{Ondes de surface}
 
-%------------------------------------------------
+Quand l'angle d'incidence dépasse ces deux angles critiques, il y a génération d'ondes de surface appelée ondes de Rayleigh.
+\subsection{Mesure de vitesse}
+À l'aide de deux transducteurs, l'onde de Rayleigh est observée en transmission latérale. En effectuant une mesure de retard $\Delta t_R$ pour trois distances inter-transducteurs $L$ on obtient les valeurs de célérité $c_R$ suivantes :
 
-\section{Discussion}
+\begin{tabular}{c|c| c | c}
+$\Delta t_R$ ($\mu$s) &4.8 & 6.05 & 10.9 \\ \hline
+$L$ (mm) & 14.5 & 16.3 & 30.8 \\ \hline
+$c_R$ (m/s) &3208 & 2694 & 2826
+\end{tabular}
 
-\subsection{Subsection One}
+\subsection{Onde de Rayleigh de fuite}
 
-\lipsum[7] % Dummy text
 
-\subsection{Subsection Two}
-
-\lipsum[8] % Dummy text
-
-%----------------------------------------------------------------------------------------
-%	REFERENCE LIST
-%----------------------------------------------------------------------------------------
-
-\begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
-
-\bibitem[Figueredo and Wolf, 2009]{Figueredo:2009dg}
-Figueredo, A.~J. and Wolf, P. S.~A. (2009).
-\newblock Assortative pairing and life history strategy - a cross-cultural
-  study.
-\newblock {\em Human Nature}, 20:317--330.
- 
-\end{thebibliography}
-
-%----------------------------------------------------------------------------------------
 
 \end{multicols}
 
